@@ -1,0 +1,39 @@
+<!-- prototypes/scenario_b.html -->
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <title>PetMatch - Rezervare Adopție</title>
+    <style>
+        body { font-family: 'Poppins', sans-serif; background: #faf7f2; color: #4a4a4a; padding: 40px; }
+        .card { max-width: 520px; background: #ffffff; margin: 0 auto; padding: 30px; border-radius: 16px; box-shadow: 0 4px 20px rgba(0,0,0,0.06); }
+        .urgency-banner { background: #fff7ed; border-left: 4px solid #ea580c; color: #c2410c; padding: 10px 14px; font-size: 0.85rem; border-radius: 4px; margin-bottom: 20px; }
+        .checkbox-group { font-size: 0.8rem; color: #64748b; margin: 15px 0; }
+        .btn-primary { width: 100%; padding: 14px; background: #ea580c; color: white; border: none; border-radius: 8px; font-weight: 600; cursor: pointer; }
+        .btn-shame { background: none; border: none; color: #94a3b8; font-size: 0.78rem; text-decoration: underline; margin-top: 12px; width: 100%; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <div class="urgency-banner">
+            🔥 <strong>Cerere ridicată:</strong> 3 alți utilizatori completează formularul pentru Luna. Rezervarea expiră în <span id="timer">02:30</span>.
+        </div>
+        <h3>Adopție Priority: Luna 🐱</h3>
+        <p style="font-size: 0.9rem;">Pentru a garanta procesarea înaintea celorlalte aplicații, confirmă detaliile de profil.</p>
+        
+        <div class="checkbox-group">
+            <label><input type="checkbox" checked> Sunt de acord să primesc oferte promoționale de la partenerii de hrană pentru animale pentru procesare prioritară.</label>
+        </div>
+
+        <button class="btn-primary" onclick="alert('Aplicație trimisă sub urgență.')">CONFIRMĂ APLICAȚIA PRIORITARĂ</button>
+        <button class="btn-shame" onclick="alert('Abandon provocat de confirm-shaming.')">Nu, renunț la șansa de a o adopta pe Luna și cedez locul altcuiva</button>
+    </div>
+
+    <script>
+        let t = 150;
+        setInterval(() => {
+            if(t > 0) { t--; let m = Math.floor(t/60), s = t%60; document.getElementById('timer').innerText = `0${m}:${s<10?'0':''}${s}`; }
+        }, 1000);
+    </script>
+</body>
+</html>

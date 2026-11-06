@@ -1,0 +1,37 @@
+<!-- prototypes/scenario_a.html -->
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <title>PetMatch - Cerere Adopție</title>
+    <style>
+        body { font-family: 'Poppins', sans-serif; background: #faf7f2; color: #4a4a4a; padding: 40px; }
+        .card { max-width: 520px; background: #ffffff; margin: 0 auto; padding: 30px; border-radius: 16px; box-shadow: 0 4px 20px rgba(0,0,0,0.04); }
+        .pet-header { display: flex; align-items: center; gap: 15px; margin-bottom: 20px; }
+        .pet-avatar { width: 60px; height: 60px; background: #e0f2fe; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 24px; }
+        .info-note { background: #f0fdf4; border: 1px solid #bbf7d0; color: #166534; padding: 12px; border-radius: 8px; font-size: 0.85rem; margin: 15px 0; }
+        .btn-group { display: flex; gap: 12px; margin-top: 20px; }
+        .btn { flex: 1; padding: 12px; border-radius: 8px; border: 1px solid #cbd5e1; cursor: pointer; font-weight: 500; }
+        .btn-submit { background: #0284c7; color: white; border: none; }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <div class="pet-header">
+            <div class="pet-avatar">🐶</div>
+            <div>
+                <h3 style="margin:0;">Adopție: Max (2 ani)</h3>
+                <small style="color:#64748b;">Adăpostul Speranța • Cluj-Napoca</small>
+            </div>
+        </div>
+        <p style="font-size: 0.9rem;">Completează preferințele de locuință pentru ca algoritmul nostru să evalueze compatibilitatea cu Max.</p>
+        <div class="info-note">
+            ℹ️ <strong>Transparență algoritm:</strong> Scorul de potrivire este calculat pe baza spațiului disponibil și a timpului alocat plimbărilor. Datele tale nu sunt partajate cu terți.
+        </div>
+        <div class="btn-group">
+            <button class="btn" onclick="alert('Ai salvat cererea.')">Salvează pe mai târziu</button>
+            <button class="btn btn-submit" onclick="alert('Cerere trimisă!')">Trimite Cererea</button>
+        </div>
+    </div>
+</body>
+</html>

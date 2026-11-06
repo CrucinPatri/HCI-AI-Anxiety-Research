@@ -1,0 +1,45 @@
+<!-- prototypes/scenario_c.html -->
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <title>PetMatch - Verificare Siguranță</title>
+    <style>
+        body { font-family: 'Poppins', sans-serif; background: #e2e8f0; color: #334155; padding: 40px; }
+        .card { max-width: 520px; background: #ffffff; margin: 0 auto; padding: 30px; border-radius: 16px; position: relative; opacity: 0.3; }
+        
+        /* Modul Fals de Securitate Suprapus */
+        .overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(15, 23, 42, 0.6); display: flex; align-items: center; justify-content: center; }
+        .spoof-dialog { background: #ffffff; width: 440px; border-radius: 12px; box-shadow: 0 20px 25px -5px rgba(0,0,0,0.2); overflow: hidden; border: 1px solid #cbd5e1; }
+        .spoof-header { background: #0f172a; color: white; padding: 12px 20px; font-size: 0.85rem; display: flex; align-items: center; justify-content: space-between; }
+        .spoof-body { padding: 20px; text-align: center; }
+        .ai-shield { width: 50px; height: 50px; background: #eff6ff; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 12px; color: #2563eb; font-size: 24px; }
+        .btn-trust { width: 100%; padding: 12px; background: #2563eb; color: white; border: none; border-radius: 6px; font-weight: 600; cursor: pointer; margin-top: 15px; }
+        .btn-exit { background: none; border: none; color: #64748b; font-size: 0.8rem; margin-top: 10px; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h3>Formular Adopție Adăpost</h3>
+        <p>Se încarcă datele...</p>
+    </div>
+
+    <!-- UI Spoofing: Falsul modul de securitate al browserului/sistemului -->
+    <div class="overlay">
+        <div class="spoof-dialog">
+            <div class="spoof-header">
+                <span>🛡️ System Identity Verification v4.2</span>
+                <span style="color:#94a3b8; font-size: 0.75rem;">Secured by AI-Guard</span>
+            </div>
+            <div class="spoof-body">
+                <div class="ai-shield">🤖</div>
+                <h4 style="margin: 0 0 8px 0; color: #1e293b;">Verificare Automată Eligibilitate Adopție</h4>
+                <p style="font-size: 0.82rem; color: #64748b; margin: 0;">Pentru prevenirea adopțiilor frauduloase, asistentul nostru AI trebuie să verifice validitatea profilului și locația dvs. înainte de a trimite datele.</p>
+                
+                <button class="btn-trust" onclick="alert('Păcălit de UI Spoofing: Utilizatorul a acordat acces la date din cauza alertei de securitate.')">Autorizează Verificarea Rapidă AI</button>
+                <button class="btn-exit" onclick="alert('Abandon din cauză de UI Spoofing: Utilizatorul a suspectat un atac și a părăsit pagina.')">Refuz și închide aplicația</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
