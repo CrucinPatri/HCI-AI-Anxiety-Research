@@ -1,4 +1,3 @@
-<!-- prototypes/scenario_b.html -->
 <!DOCTYPE html>
 <html lang="ro">
 <head>
@@ -22,18 +21,36 @@
         <p style="font-size: 0.9rem;">Pentru a garanta procesarea înaintea celorlalte aplicații, confirmă detaliile de profil.</p>
         
         <div class="checkbox-group">
-            <label><input type="checkbox" checked> Sunt de acord să primesc oferte promoționale de la partenerii de hrană pentru animale pentru procesare prioritară.</label>
+            <label><input type="checkbox" id="promo-box" checked> Sunt de acord să primesc oferte promoționale de la partenerii de hrană pentru animale pentru procesare prioritară.</label>
         </div>
 
-        <button class="btn-primary" onclick="alert('Aplicație trimisă sub urgență.')">CONFIRMĂ APLICAȚIA PRIORITARĂ</button>
-        <button class="btn-shame" onclick="alert('Abandon provocat de confirm-shaming.')">Nu, renunț la șansa de a o adopta pe Luna și cedez locul altcuiva</button>
+        <button class="btn-primary" onclick="submitToForm(0)">CONFIRMĂ APLICAȚIA PRIORITARĂ</button>
+        <button class="btn-shame" onclick="submitToForm(1)">Nu, renunț la șansa de a o adopta pe Luna și cedez locul altcuiva</button>
     </div>
 
     <script>
+        const startTime = Date.now();
+        const BASE_FORM_URL = "https://docs.google.com/forms/d/e/1FAIpQLSdCfj0vJfSocbzkfB2MkhlgMA-pnc6dN66JZmrJAR67z0yY8w/viewform?usp=pp_url";
+
         let t = 150;
         setInterval(() => {
             if(t > 0) { t--; let m = Math.floor(t/60), s = t%60; document.getElementById('timer').innerText = `0${m}:${s<10?'0':''}${s}`; }
         }, 1000);
+
+        function submitToForm(isAbandon) {
+            const timeSec = Math.max(1, Math.round((Date.now() - startTime) / 1000));
+            // Dacă utilizatorul confirmă aplicația fără să debifeze caseta pre-bifatǎ, se înregistrează eroare (1)
+            const errorMade = (isAbandon === 0 && document.getElementById('promo-box').checked) ? 1 : 0;
+
+            const params = new URLSearchParams({
+                "entry.1016966769": "B",
+                "entry.622406632": timeSec,
+                "entry.1706958495": errorMade,
+                "entry.1245478581": isAbandon,
+                "entry.1735656401": 0
+            });
+            window.location.href = `${BASE_FORM_URL}&${params.toString()}`;
+        }
     </script>
 </body>
 </html>

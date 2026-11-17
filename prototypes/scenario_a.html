@@ -1,4 +1,3 @@
-<!-- prototypes/scenario_a.html -->
 <!DOCTYPE html>
 <html lang="ro">
 <head>
@@ -29,9 +28,26 @@
             ℹ️ <strong>Transparență algoritm:</strong> Scorul de potrivire este calculat pe baza spațiului disponibil și a timpului alocat plimbărilor. Datele tale nu sunt partajate cu terți.
         </div>
         <div class="btn-group">
-            <button class="btn" onclick="alert('Ai salvat cererea.')">Salvează pe mai târziu</button>
-            <button class="btn btn-submit" onclick="alert('Cerere trimisă!')">Trimite Cererea</button>
+            <button class="btn" onclick="submitToForm(1)">Salvează pe mai târziu</button>
+            <button class="btn btn-submit" onclick="submitToForm(0)">Trimite Cererea</button>
         </div>
     </div>
+
+    <script>
+        const startTime = Date.now();
+        const BASE_FORM_URL = "https://docs.google.com/forms/d/e/1FAIpQLSdCfj0vJfSocbzkfB2MkhlgMA-pnc6dN66JZmrJAR67z0yY8w/viewform?usp=pp_url";
+
+        function submitToForm(isAbandon) {
+            const timeSec = Math.max(1, Math.round((Date.now() - startTime) / 1000));
+            const params = new URLSearchParams({
+                "entry.1016966769": "A",
+                "entry.622406632": timeSec,
+                "entry.1706958495": 0,
+                "entry.1245478581": isAbandon,
+                "entry.1735656401": 0
+            });
+            window.location.href = `${BASE_FORM_URL}&${params.toString()}`;
+        }
+    </script>
 </body>
 </html>
