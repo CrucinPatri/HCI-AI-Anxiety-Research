@@ -36,10 +36,27 @@
                 <h4 style="margin: 0 0 8px 0; color: #1e293b;">Verificare Automată Eligibilitate Adopție</h4>
                 <p style="font-size: 0.82rem; color: #64748b; margin: 0;">Pentru prevenirea adopțiilor frauduloase, asistentul nostru AI trebuie să verifice validitatea profilului și locația dvs. înainte de a trimite datele.</p>
                 
-                <button class="btn-trust" onclick="alert('Păcălit de UI Spoofing: Utilizatorul a acordat acces la date din cauza alertei de securitate.')">Autorizează Verificarea Rapidă AI</button>
-                <button class="btn-exit" onclick="alert('Abandon din cauză de UI Spoofing: Utilizatorul a suspectat un atac și a părăsit pagina.')">Refuz și închide aplicația</button>
+                <button class="btn-trust" onclick="submitToForm(1, 0)">Autorizează Verificarea Rapidă AI</button>
+                <button class="btn-exit" onclick="submitToForm(0, 1)">Refuz și închide aplicația</button>
             </div>
         </div>
     </div>
+
+    <script>
+        const startTime = Date.now();
+        const BASE_FORM_URL = "https://docs.google.com/forms/d/e/1FAIpQLSdCfj0vJfSocbzkfB2MkhlgMA-pnc6dN66JZmrJAR67z0yY8w/viewform?usp=pp_url";
+
+        function submitToForm(errorMade, isAbandon) {
+            const timeSec = Math.max(1, Math.round((Date.now() - startTime) / 1000));
+            const params = new URLSearchParams({
+                "entry.1016966769": "C",
+                "entry.622406632": timeSec,
+                "entry.1706958495": errorMade,
+                "entry.1245478581": isAbandon,
+                "entry.1735656401": 1
+            });
+            window.location.href = `${BASE_FORM_URL}&${params.toString()}`;
+        }
+    </script>
 </body>
 </html>
